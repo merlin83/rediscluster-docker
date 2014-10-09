@@ -1,0 +1,13 @@
+redisclusternode:
+  image: merlin83/rediscluster-node
+  ports:
+    - "6379"
+    - "16379"
+
+rccontrol:
+  image: merlin83/rediscluster-control
+  links:
+    - redisclusternode
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
